@@ -1,46 +1,13 @@
 namespace FriendLetter
 {
-    using Nancy;
+  using Nancy;
 
-    public class HomeModule : NancyModule
+  public class HomeModule : NancyModule
+  {
+    public HomeModule()
     {
-      public HomeModule()
-              {
-                  Get["/"] = _ =>
-                    "<!DOCTYPE html>" +
-                    "<html>" +
-                      "<head>" +
-                        "<title>Hello Friend!</title>" +
-                        "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>" +
-                      "</head>" +
-                      "<body>" +
-                        "<h1>Hello From Afar</h1>" +
-                        "<p>Dear Friend,</p>" +
-                        "<p>How are you? I hope that you are having a nice weekend. I'm learning programming in Portland! </p>" +
-                        "<p>Friend, you would not believe how cold it is here. I should have gone to Hawaii instead.</p>" +
-                        "<p>But I like programming a lot, so I've got that going for me. </p>" +
-                        "<p>Looking forward to seeing you soon. I'll bring you back a souvenir. </p>" +
-                        "<p>Cheers,</p>" +
-                        "<p>Travel Enthusiast Jane</p>" +
-                        "<p><a href='/favorite_photos' >P.S. Check out my favorite travel photos here.</a></p>" +
-                      "</body>" +
-                    "</html>";
-                  Get["/favorite_photos"] = _ =>
-                    "<!DOCTYPE html>" +
-                    "<html>" +
-                      "<head>" +
-                        "<title>Hello Friend!</title>" +
-                        "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>" +
-                      "</head>" +
-                      "<body>" +
-                        "<h1>Favorite Traveling Photos</h1>" +
-                        "<ul>" +
-                          "<li><img src='Content/img/photo1.jpg'/></li>" +
-                          "<li><img src='Content/img/photo2.jpg'/></li>" +
-                          "<li><img src='Content/img/photo3.jpg'/></li>" +
-                        "</ul>" +
-                      "</body>" +
-                    "</html>";
-              }
+      Get["/"] = _ => View["hello.html"];
+      Get["/favorite_photos"] = _ => View["favorite_photos.html"];
     }
+  }
 }
